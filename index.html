@@ -9567,5 +9567,25 @@
     });
   })();
 </script>
+  <script>
+function trackVirtualPage(pageName){
+  if (typeof gtag === 'function') {
+    gtag('event', 'page_view', {
+      page_title: pageName,
+      page_path: '/' + pageName
+    });
+  }
+}
+
+document.querySelectorAll('[onclick]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const txt = el.textContent.trim();
+    if(txt){
+      const page = txt.toLowerCase().replace(/\s+/g,'-');
+      trackVirtualPage(page);
+    }
+  });
+});
+</script>
 </body>
 </html>
