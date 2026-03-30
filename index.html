@@ -9306,10 +9306,10 @@
     // Aktualizuj URL
     history.pushState(null, '', id === 'home' ? '/' : '/' + id);
     updateOG(id);
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + id);
     if (target) {
       target.classList.add('active');
+      document.querySelectorAll('.page').forEach(p => { if (p !== target) p.classList.remove('active'); });
       target.scrollIntoView({ behavior: 'instant', block: 'start' });
       // Restart hero text animations
       const heroEl = target.querySelector('div[style*="height:420px"] [style*="fadeUp"], div[style*="height:380px"] [style*="fadeUp"]');
