@@ -44,7 +44,7 @@
     --glow: rgba(201,169,110,0.08);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
+  html { scroll-behavior:auto; }
   body { background:var(--void); color:var(--white); font-family:'Outfit',sans-serif; font-weight:300; font-size:20px; overflow-x:hidden; line-height:1.8; }
 
   /* ── PAGE SYSTEM ── */
@@ -9311,7 +9311,7 @@
     if (target) {
       target.classList.add('active');
       document.querySelectorAll('.page').forEach(p => { if (p !== target) p.classList.remove('active'); });
-      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      window.scrollTo(0, 0);
       // Restart hero text animations
       const heroEl = target.querySelector('div[style*="height:420px"] [style*="fadeUp"], div[style*="height:380px"] [style*="fadeUp"]');
       target.querySelectorAll('div[style*="height:420px"] [style*="animation:fadeUp"], div[style*="height:380px"] [style*="animation:fadeUp"]').forEach(el => {
